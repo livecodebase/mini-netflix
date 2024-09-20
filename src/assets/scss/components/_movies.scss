@@ -1,0 +1,380 @@
+.movie-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 1.5rem 0.5rem #060000;
+    @include mobile {
+      box-shadow: none;
+    }
+
+    figure {
+      display: flex;
+      @include mobile {
+        flex-direction: column;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        transition: 0.3s ease;
+        aspect-ratio: 227 / 341;
+        object-fit: cover;
+      }
+    }
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 35%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      transform: translateY(100%);
+      transition: 0.3s ease;
+      @include mobile {
+        position: unset;
+        transform: unset;
+        padding: 0.5rem 0 1rem 0;
+        background: none;
+      }
+      .movie-title {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+        line-height: 140%;
+        font-weight: 500;
+        text-decoration: none;
+        @include mobile {
+          font-size: 1rem;
+        }
+      }
+      .release-year {
+        color: $textPrimary;
+        font-size: 1rem;
+        line-height: 1;
+        text-decoration: none;
+        @include mobile {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    &:hover {
+      figure {
+        img {
+          opacity: 0.5;
+          transition-delay: 0.1s;
+        }
+      }
+      figcaption {
+        transform: translateY(0);
+        transition-delay: 0.1s;
+      }
+    }
+  }
+}
+.movie-noresult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+}
+
+.movie-detail {
+  color: #fff;
+  h1 {
+    font-size: 3rem;
+    line-height: 3.25rem;
+    font-weight: 400;
+    padding-right: 3rem;
+    @include mobile {
+      font-size: 2rem;
+      line-height: 120%;
+    }
+  }
+  .movies-info {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-top: 0.5rem;
+    @include mobile {
+      margin-top: 0;
+    }
+    li {
+      margin-right: 1.25rem;
+      display: inline-block;
+      position: relative;
+      color: $textPrimary;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: -13px;
+        width: 0.25rem;
+        height: 0.25rem;
+        background-color: $textPrimary;
+        border-radius: 0.25rem;
+      }
+      &:last-child {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+  .movie-detail-header {
+    display: flex;
+    align-items: flex-start;
+    @include mobile {
+      flex-direction: column;
+    }
+    .content-right {
+      margin-left: auto;
+      display: flex;
+      min-width: 222px;
+      @include mobile {
+        justify-content: space-around;
+        margin: 0;
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+      .rating-wrap,
+      .votes-wrap {
+        margin-right: 1.5rem;
+        .title {
+          font-size: 1.125rem;
+          font-weight: 500;
+          line-height: 1.25rem;
+          color: $textPrimary;
+          margin-bottom: 0.25rem;
+          strong {
+            font-weight: 500;
+          }
+        }
+        .content {
+          display: flex;
+          align-items: center;
+          font-size: 1.25rem;
+          color: $textPrimary;
+          svg {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.5rem;
+          }
+          .rating-val {
+            font-size: 1.5rem;
+            color: #fff;
+          }
+        }
+      }
+      .votes-wrap {
+        margin-right: 0;
+        .content {
+          font-size: 1.5rem;
+          margin-top: 6px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .movie-featured {
+    margin-top: 1.5rem;
+    display: flex;
+    @include mobile {
+      flex-direction: column;
+    }
+    figure {
+      width: 400px;
+      min-width: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      @include mobile {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+    .content {
+      padding-left: 3rem;
+      @include mobile {
+        padding-left: 0;
+        margin-top: 1.5rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+      }
+    }
+    h2.movie-detail-title {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .movie-detail-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      max-width: 600px;
+      li {
+        padding: 1rem 0;
+        display: block;
+        border-top: 1px solid #282727;
+        color: #fff;
+        display: flex;
+        &:last-child {
+          border-bottom: 1px solid #282727;
+        }
+        strong {
+          min-width: 150px;
+          display: inline-block;
+          color: $textPrimary;
+        }
+      }
+    }
+  }
+}
+.movie-back-btn {
+  background-color: transparent;
+  color: $textPrimary;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  @include mobile {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  svg {
+    transition: 0.2s ease;
+    margin-right: 0.5rem;
+  }
+  &:hover {
+    color: #fff;
+    svg {
+      color: #fff;
+      fill: #fff;
+    }
+  }
+}
+
+.movie-detail-loader {
+  .header-loader {
+    display: flex;
+    @include mobile {
+      flex-direction: column;
+    }
+    .title-area {
+      width: 85%;
+      background-color: #262626;
+      height: 3rem;
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .left-area {
+      width: calc(100% - 222px);
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .contentpoint-area {
+      width: 20%;
+      background-color: #262626;
+      height: 1.5rem;
+      margin-top: 1rem;
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .rating-area {
+      background-color: #262626;
+      width: 222px;
+      height: 80px;
+      @include mobile {
+        width: 80%;
+        margin: 1.5rem auto 0 auto;
+      }
+    }
+  }
+  .conptent-area {
+    display: flex;
+    margin-top: 2rem;
+    @include mobile {
+      flex-direction: column;
+    }
+    .loading-image {
+      width: 400px;
+      height: 600px;
+      background-color: #262626;
+      @include mobile {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 1.5rem;
+      }
+    }
+    .right-content {
+      width: 100%;
+      padding-left: 3rem;
+      @include mobile {
+        padding-left: 0;
+      }
+      .heading {
+        height: 3rem;
+        width: 200px;
+        background-color: #262626;
+        margin-bottom: 1.5rem;
+      }
+      .heading-second {
+        margin-top: 3rem;
+      }
+      .p-content {
+        background-color: #262626;
+        margin-bottom: 1.5rem;
+        height: 70px;
+      }
+      .p-content-second {
+        height: 340px;
+      }
+    }
+  }
+}

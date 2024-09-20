@@ -1,0 +1,27 @@
+header {
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  background: $bgdark;
+  z-index: 10;
+  @include mobile {
+    padding: 1rem 0;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    .applogo {
+      width: 120px;
+      height: auto;
+      display: flex;
+      margin-right: 2rem;
+      @include mobile {
+        width: 90px;
+      }
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

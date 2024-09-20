@@ -1,0 +1,57 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $fontFamily;
+  background-color: $bgdark;
+}
+img {
+  width: 100%;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  @include belowlg {
+    padding-left: $containerPaddingDesktop;
+    padding-right: $containerPaddingDesktop;
+  }
+  @include mobile {
+    padding-left: $containerPaddingMobile;
+    padding-right: $containerPaddingMobile;
+  }
+}
+.container-fluid {
+  padding: 0 60px;
+  @include belowlg {
+    padding-left: $containerPaddingDesktop;
+    padding-right: $containerPaddingDesktop;
+  }
+  @include mobile {
+    padding-left: $containerPaddingMobile;
+    padding-right: $containerPaddingMobile;
+  }
+}
+.btn {
+  min-height: 3rem;
+  min-width: 120px;
+  padding: 0px 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  background: #fff;
+  text-decoration: none;
+  align-content: center;
+  color: #333;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}

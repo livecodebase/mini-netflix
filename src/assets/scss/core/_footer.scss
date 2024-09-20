@@ -1,0 +1,36 @@
+footer {
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+  @include mobile {
+    padding-top: 2rem;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    li {
+      a {
+        color: $greyLight;
+        text-decoration: none;
+        &:hover {
+          color: $textPrimary;
+        }
+        @include mobile {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+  p {
+    color: $greyLight;
+    margin-top: 2rem;
+    border-top: 1px solid $border;
+    padding-top: 1rem;
+    @include mobile {
+      font-size: 0.875rem;
+    }
+  }
+}
