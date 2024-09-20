@@ -42,10 +42,10 @@ img {
   font-weight: 600;
   cursor: pointer;
   appearance: none;
-  background: #fff;
+  background: $white;
   text-decoration: none;
   align-content: center;
-  color: #333;
+  color: $btntext;
 }
 ul {
   list-style: none;
