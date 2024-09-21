@@ -1,7 +1,6 @@
-@import './variables';
-@import './mixin';
+@import './_variables';
+@import './_mixin';
 @import './_common.scss';
 @import './core/_header.scss';
 @import './core/_footer.scss';
 @import './components/_movies.scss';
-@import './components/_404.scss';

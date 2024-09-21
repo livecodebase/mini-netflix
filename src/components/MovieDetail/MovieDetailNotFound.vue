@@ -9,3 +9,10 @@ import { RouterLink } from 'vue-router'
     <RouterLink to="/" class="btn" rel="noopener noreferrer">Netflix Home</RouterLink>
   </section>
 </template>
+
+<style lang="scss">
+.not-found-page {
+  min-height: calc(100vh - 6rem);
+  align-content: center;
+}
+</style>

@@ -9,7 +9,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler'
+        api: 'modern-compiler',
+        additionalData: `
+        @import "@/assets/scss/_variables.scss";
+        @import "@/assets/scss/_mixin.scss";
+        `
       }
     }
   },
