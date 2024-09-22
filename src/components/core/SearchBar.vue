@@ -1,20 +1,42 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import SearchIcon from '@/assets/images/search.svg'
 import CloseIcon from '@/assets/images/x.svg'
+import { useMovieStore } from '@/stores/movieStore'
 
 const searchData = ref('')
 
-function clearhandler() {
-  searchData.value = ''
-}
+const { fetchMovies } = useMovieStore()
 
+const clearhandler = () => {
+  searchData.value = ''
+  fetchMovies()
+}
+const debounce = (fn, delay) => {
+  let timeoutID
+  return (...args) => {
+    if (timeoutID) clearTimeout(timeoutID)
+    timeoutID = setTimeout(() => {
+      fn.apply(this, args)
+    }, delay)
+  }
+}
+const handleSearch = () => {
+  fetchMovies(searchData.value)
+}
+const debouncedSearch = debounce(handleSearch, 500)
 </script>
 <template>
   <div class="search-box">
-    <img class="search-icon" :src="SearchIcon" alt="search icon">
-    <input type="text" v-model="searchData" placeholder="Movie Name" />
-    <img v-show="searchData ? true : false" @click="clearhandler" class="close-icon" :src="CloseIcon" alt="close icon">
+    <img class="search-icon" :src="SearchIcon" alt="search icon" />
+    <input type="text" v-model="searchData" placeholder="Movie Name" @input="debouncedSearch" />
+    <img
+      v-show="searchData ? true : false"
+      @click="clearhandler"
+      class="close-icon"
+      :src="CloseIcon"
+      alt="close icon"
+    />
   </div>
 </template>
 

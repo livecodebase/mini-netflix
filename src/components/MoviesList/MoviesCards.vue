@@ -10,7 +10,7 @@ const movieStore = useMovieStore()
 
 const { movies, loading, error } = storeToRefs(movieStore)
 
-function onImageError(event) {
+const onImageError = (event) => {
   event.target.src = FallbackImage
 }
 </script>
@@ -40,5 +40,5 @@ function onImageError(event) {
       </article>
     </RouterLink>
   </section>
-  <MoviesNotFound v-if="error" />
+  <MoviesNotFound v-if="error || !movies || movies?.length == 0" />
 </template>

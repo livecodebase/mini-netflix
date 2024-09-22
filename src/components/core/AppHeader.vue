@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import AppLogo from '@/components/core/AppLogo.vue'
 import SearchBar from './SearchBar.vue'
+import NavLinks from './NavLinks.vue'
 </script>
 <template>
   <header>
@@ -10,6 +11,7 @@ import SearchBar from './SearchBar.vue'
         <RouterLink aria-label="netflix logo" to="/" class="applogo" rel="noopener noreferrer">
           <AppLogo />
         </RouterLink>
+        <NavLinks />
         <SearchBar />
       </nav>
     </div>

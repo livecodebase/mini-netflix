@@ -6,7 +6,7 @@ export const useMovieStore = defineStore('movieStore', () => {
   const loading = ref(false)
   const error = ref(null)
 
-  async function fetchMovies(searchTerm) {
+  const fetchMovies = async (searchTerm) => {
     loading.value = true
     error.value = null
 

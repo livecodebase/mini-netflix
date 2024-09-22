@@ -219,7 +219,7 @@
     figure {
       width: 400px;
       min-width: 400px;
-      border-radius: 8px;
+      border-radius: 0.5rem;
       overflow: hidden;
       @include mobile {
         width: 100%;
