@@ -9,6 +9,6 @@ function refreshHandler() {
 <template>
   <section class="container-fluid movie-noresult">
     <h1>No Results Found</h1>
-    <button @click="refreshHandler">Try again</button>
+    <button class="btn" @click="refreshHandler">Try again</button>
   </section>
 </template>
